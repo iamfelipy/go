@@ -1,0 +1,41 @@
+# models
+
+type Category {
+  id: ID!
+  name: String!
+  description: String
+  courses: [Course!]!
+}
+
+type Course {
+  id: ID!
+  name: String!
+  description: String
+  category: Category!
+}
+
+# inputs preciso disso para criar
+
+input NewCategory {
+  name: String!
+  description: String
+}
+
+input NewCourse {
+  name: String!
+  description: String
+  categoryId: ID!
+}
+
+# query usado para buscar
+
+type Query {
+	categories: [Category!]!
+	courses: [Course!]!
+}
+
+# Mutation - inserir, alterar dados
+type Mutation {
+	createCategory(input: NewCategory!): Category!
+	createCourse(input: NewCourse!): Course!
+}
