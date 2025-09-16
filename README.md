@@ -20,3 +20,11 @@ Execute o comando abaixo dentro do container para criar a tabela:
 ```sh
 sqlite3 data.db "create table categories (id string, name string, description string);"
 ```
+
+### 3. Crie a tabela `courses` no SQLite3
+
+Execute o comando abaixo dentro do container para criar a tabela:
+
+```sh
+sqlite3 data.db "create table courses (id string, name string, description string, category_id string);"
+```

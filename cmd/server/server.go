@@ -28,6 +28,7 @@ func main() {
 	defer db.Close()
 
 	categoryDb := database.NewCategory(db)
+	courseDb := database.NewCourse(db)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -36,6 +37,7 @@ func main() {
 
 	srv := handler.New(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
 		CategoryDB: categoryDb,
+		CourseDB:   courseDb,
 	}}))
 
 	srv.AddTransport(transport.Options{})
